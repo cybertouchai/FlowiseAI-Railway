@@ -13,8 +13,8 @@ RUN apk add --no-cache chromium
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Try Flowise v1.2.x - older stable version
-RUN npm install -g flowise@1.2.7
+# Restore exact version: v1.4.3 (original deployed version)
+RUN npm install -g flowise@1.4.3
 
 WORKDIR /data
 
