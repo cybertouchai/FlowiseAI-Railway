@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 USER root
 
@@ -13,8 +13,11 @@ RUN apk add --no-cache chromium
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Try Flowise v1.1.0 - early version without heavy undici dependency
+# Install Flowise v1.1.0 with Node 20
 RUN npm install -g flowise@1.1.0
+
+# Create .flowise directory with proper permissions
+RUN mkdir -p /root/.flowise && chmod 755 /root/.flowise
 
 WORKDIR /data
 
