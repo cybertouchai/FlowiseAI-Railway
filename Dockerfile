@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 USER root
 
@@ -13,8 +13,8 @@ RUN apk add --no-cache chromium
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Restore exact version: v1.4.3 (original deployed version)
-RUN npm install -g flowise@1.4.3
+# Install latest Flowise (compatible with Node 20)
+RUN npm install -g flowise
 
 WORKDIR /data
 
