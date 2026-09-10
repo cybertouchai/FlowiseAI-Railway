@@ -13,8 +13,9 @@ RUN apk add --no-cache chromium
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Restore exact version: v1.4.3 (original deployed version)
-RUN npm install -g flowise@1.4.3
+# Install latest Flowise compatible with Node 18 (no version pin)
+# This matches the original setup that worked in 2025-06
+RUN npm install -g flowise
 
 WORKDIR /data
 
