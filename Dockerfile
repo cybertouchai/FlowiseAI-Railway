@@ -13,8 +13,8 @@ RUN apk add --no-cache chromium
 ENV PUPPETEER_SKIP_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-# Install Flowise v1.x (stable version compatible with Node 18)
-RUN npm install -g flowise@1.4.8
+# Try Flowise v1.2.x - older stable version
+RUN npm install -g flowise@1.2.7
 
 WORKDIR /data
 
