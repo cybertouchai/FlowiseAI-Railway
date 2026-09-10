@@ -16,6 +16,9 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 # Try Flowise v1.1.0 - early version without heavy undici dependency
 RUN npm install -g flowise@1.1.0
 
+# Create .flowise directory with proper permissions
+RUN mkdir -p /root/.flowise && chmod 755 /root/.flowise
+
 WORKDIR /data
 
 # Set environment variables
